@@ -107,3 +107,70 @@ document.addEventListener('change',e=>{const k=e.target.dataset.os;if(k===undefi
 async function boot(){draw();if(!TOK)return;try{await load();note=null}catch(e){let t=e.message;if(e.diag)t+=' — '+await diag();note={t}}draw()}
 boot();
 </script></body></html>
+<style>
+#rc{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;overflow:auto;padding:20px}
+#rc .p{background:#fff;max-width:520px;margin:auto;padding:24px;font-family:Arial,sans-serif;color:#0B2E1F}
+#rc .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:6px solid #0B2E1F;padding-bottom:10px}
+#rc .hd img{width:120px}
+#rc h1{margin:0;letter-spacing:4px;text-align:right}
+#rc .or{color:#B8892B;font-weight:bold}
+#rc table{width:100%;border-collapse:collapse;margin:14px 0}
+#rc th{background:#0B2E1F;color:#fff;padding:6px;text-align:left;font-size:13px}
+#rc td{padding:6px;border-bottom:1px solid #ddd;font-size:13px}
+#rc .tt{background:#0B2E1F;color:#fff;padding:10px;display:flex;justify-content:space-between;font-weight:bold}
+#rc .ft{background:#0B2E1F;color:#fff;font-size:11px;padding:8px;margin-top:18px;text-align:center}
+#rc .ft b{color:#E0B04A;letter-spacing:2px}
+#rc .bt{max-width:520px;margin:10px auto;display:flex;gap:8px}
+#rc .bt button,#rc .bt a{flex:1;padding:12px;border:0;border-radius:6px;font-weight:bold;text-align:center;text-decoration:none;cursor:pointer;font-size:14px}
+@media print{body>*:not(#rc){display:none!important}#rc{position:static;background:none;padding:0}#rc .bt{display:none}}
+</style>
+<script>
+(function(){
+  function recu(o){
+    if(!o)return;
+    var old=document.getElementById('rc');if(old)old.remove();
+    var num='MB-'+String(o.id).slice(-6);
+    var date=new Date(o.d).toLocaleDateString('fr');
+    var rows=o.l.map(function(l){return '<tr><td>'+esc(l.n)+'</td><td>'+l.q+'</td><td>'+nf(l.p)+'</td><td>'+nf(l.p*l.q)+'</td></tr>'}).join('');
+    var tel=(o.t||'').replace(/\D/g,'');if(tel.length===8)tel='222'+tel;
+    var msg='MBEYBE SPORT - Reçu '+num+' du '+date+'
+'+o.l.map(function(l){return '- '+l.n+' x'+l.q+' : '+nf(l.p*l.q)+' MRU'}).join('
+')+'
+TOTAL : '+nf(o.total)+' MRU
+Paiement : '+o.pay+'
+Merci pour votre confiance !';
+    var d=document.createElement('div');d.id='rc';
+    d.innerHTML='<div class="p">'+
+      '<div class="hd">[Logo%20MS.jpeg](Logo%20MS.jpeg)<div><h1>REÇU</h1><div class="or">N° '+num+'</div><div>'+date+'</div></div></div>'+
+      '<p><b>Client :</b> '+esc(o.n)+'<br><b>Téléphone :</b> '+esc(o.t||'-')+'<br><b>Paiement :</b> '+esc(o.pay)+' · <b>Statut :</b> '+(ST[o.s]||'')+'</p>'+
+      '<table><tr><th>Article</th><th>Qté</th><th>Prix U.</th><th>Total</th></tr>'+rows+'</table>'+
+      '<div class="tt"><span>TOTAL</span><span>'+nf(o.total)+' MRU</span></div>'+
+      '<p style="text-align:center;font-size:12px;color:#555;margin-top:14px">Merci pour votre confiance !</p>'+
+      '<div class="ft">+222 49 74 33 32 · contact@mbeybesport.com · Nouakchott / Mauritanie<br><b>ÉQUIPEZ VOS AMBITIONS</b></div>'+
+    '</div>'+
+    '<div class="bt">'+
+      '<button style="background:#0B2E1F;color:#fff" onclick="window.print()">Imprimer / PDF</button>'+
+      (tel?'<a style="background:#25D366;color:#fff" target="_blank" href="https://wa.me/'+tel+'?text='+encodeURIComponent(msg)+'">WhatsApp</a>':'')+
+      '<button style="background:#ddd" onclick="document.getElementById(\'rc\').remove()">Fermer</button>'+
+    '</div>';
+    document.body.appendChild(d);
+  }
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('[data-a="osave"]'))return;
+    var n=ORD.length,k=0,t=setInterval(function(){
+      if(ORD.length>n){clearInterval(t);recu(ORD[ORD.length-1])}
+      else if(++k>100)clearInterval(t);
+    },300);
+  },true);
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-rc]');if(b)recu(ORD[+b.dataset.rc]);
+  });
+  new MutationObserver(function(){
+    document.querySelectorAll('select[data-os]').forEach(function(s){
+      if(s.nextElementSibling&&s.nextElementSibling.dataset.rc!==undefined)return;
+      var b=document.createElement('button');b.className='sm';b.textContent='Reçu';b.dataset.rc=s.dataset.os;b.style.marginLeft='6px';
+      s.after(b);
+    });
+  }).observe(document.getElementById('app'),{childList:true,subtree:true});
+})();
+</script>
