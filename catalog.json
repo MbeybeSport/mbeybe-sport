@@ -29,5 +29,6 @@
   {"id":"nmv9o04ia","nom":"Chaussette Noir","nom_en":"Black Socks","nom_ar":"جورب أسود","cat":"socks","prix":70,"stock":15,"visible":1,"image":"images/nmv9o04ia.jpg"},
   {"id":"nmv9o1k44","nom":"Chaussette bleu ciel","nom_en":"Sky-blue sock","nom_ar":"جورب أزرق سماوي","cat":"socks","prix":70,"stock":10,"visible":1,"image":"images/nmv9o1k44.jpg"},
   {"id":"nmv9o2sff","nom":"Chaussette bleu foncé","nom_en":"Dark blue sock","nom_ar":"جورب أزرق داكن","cat":"socks","prix":70,"stock":10,"visible":1,"image":"images/nmv9o2sff.jpg"},
-  {"id":"nmvtgapzd","nom":"Maillot Real Madrid personnalisé","nom_en":"Personalized Real Madrid Jersey","nom_ar":"قميص ريال مدريد المخصص","cat":"jersey","prix":600,"stock":1,"visible":1,"image":"images/nmvtgapzd.jpg"}
+  {"id":"nmvtgapzd","nom":"Maillot Real Madrid personnalisé","nom_en":"Personalized Real Madrid Jersey","nom_ar":"قميص ريال مدريد المخصص","cat":"jersey","prix":600,"stock":1,"visible":1,"image":"images/nmvtgapzd.jpg"},
+  {"id":"nmvtge3rt","nom":"Maillot Al Nasr Personalisé","nom_en":"Custom Al Nasr Jersey","nom_ar":"قميص النصر المخصص","cat":"jersey","prix":600,"stock":1,"visible":1,"image":"images/nmvtge3rt.jpg"}
 ]
