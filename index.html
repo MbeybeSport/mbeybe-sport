@@ -10,13 +10,14 @@
 <link rel="canonical" href="https://mbeybesport.github.io/mbeybe-sport/">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"MBEYBE SPORT","url":"https://mbeybesport.github.io/mbeybe-sport/","logo":"https://mbeybesport.github.io/mbeybe-sport/images/logo.jpg","image":"https://mbeybesport.github.io/mbeybe-sport/images/logo.jpg","description":"Maillots, chaussures et équipements de sport en Mauritanie. Commande par WhatsApp.","telephone":"+22249743332","areaServed":"Nouakchott, Mauritanie","priceRange":"150-1200 MRU","currenciesAccepted":"MRU"}</script>
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N6JHLZB8"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XS8SPXVQWP"></script>
 <script>
-window.__gaStatic="GTM-N6JHLZB8";
+window.__gaStatic=["G-XS8SPXVQWP","GTM-N6JHLZB8"];
 try{ if(sessionStorage.getItem("mb_admin")==="1") window["ga-disable-G-XS8SPXVQWP"]=true; }catch(e){}
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
+gtag('config', 'G-XS8SPXVQWP');
 </script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MBEYBE SPORT">
@@ -556,7 +557,7 @@ const DESC_DEF = {
  "chaussures":{fr:"Chaussures de foot. Pointures 38 à 45.",en:"Football boots. Sizes 38 to 45.",ar:"أحذية كرة القدم. المقاسات من 38 إلى 45."},
  "chaussettes":{fr:"Chaussettes antidérapantes pour mieux jouer.",en:"Grip socks for better play.",ar:"جوارب مانعة للانزلاق لأداء أفضل."}
 };
-const DEFAULT_STORE = {v:1, settings:{whatsapp:WHATSAPP, rate:RATE_FCFA, images:{emblem:"images/logo-emblem.jpg", logo:"images/logo.jpg", s1:"", s2:"images/maillot-personnalise-accueil.jpg", s3:"", bankily:"images/logo-bankily.jpg", masrvi:"images/logo-masrvi.jpg", sedad:"images/logo-sedad.jpg", wave:"images/logo-wave.jpg"}, trackId:"GTM-N6JHLZB8", payWave:"+221 76 174 28 87", payMr:"38 74 33 32", social:{facebook:"",instagram:"",tiktok:""}, adminHash:"4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265", announce:{fr:"",en:"",ar:""}}, cats:CATS, products:PRODUCTS, reviews:[]};
+const DEFAULT_STORE = {v:1, settings:{whatsapp:WHATSAPP, rate:RATE_FCFA, images:{emblem:"images/logo-emblem.jpg", logo:"images/logo.jpg", s1:"", s2:"images/maillot-personnalise-accueil.jpg", s3:"", bankily:"images/logo-bankily.jpg", masrvi:"images/logo-masrvi.jpg", sedad:"images/logo-sedad.jpg", wave:"images/logo-wave.jpg"}, trackId:"G-XS8SPXVQWP", payWave:"+221 76 174 28 87", payMr:"38 74 33 32", social:{facebook:"",instagram:"",tiktok:""}, adminHash:"4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265", announce:{fr:"",en:"",ar:""}}, cats:CATS, products:PRODUCTS, reviews:[]};
 const IMG_EMBED = window.IMG_EMBED || {};
 const imgSrc = s => IMG_EMBED[s] || s;
 
@@ -707,7 +708,7 @@ function saveDraft(){
 let trackLoaded=false;
 function loadTracking(){
   const id=STORE.settings.trackId;
-  if(trackLoaded || !id || id===window.__gaStatic || isAdmin() || !/^https?:$/.test(location.protocol) || window.top!==window) return;
+  if(trackLoaded || !id || (window.__gaStatic||[]).indexOf(id)>-1 || isAdmin() || !/^https?:$/.test(location.protocol) || window.top!==window) return;
   trackLoaded=true; window.dataLayer=window.dataLayer||[];
   const sc=document.createElement("script"); sc.async=true;
   if(id.startsWith("GTM-")){ window.dataLayer.push({"gtm.start":Date.now(),event:"gtm.js"}); sc.src="https://www.googletagmanager.com/gtm.js?id="+id; }
