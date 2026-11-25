@@ -40,9 +40,9 @@
     "ar": ""
    },
    "ret": {
-    "fr": "",
-    "en": "",
-    "ar": ""
+    "fr": "Échange possible dans les 48 heures après la réception, si le produit est neuf, non porté et non lavé. Écrivez-nous sur WhatsApp avec une photo : nous trouvons une solution avec vous. Les frais de livraison de l'échange sont discutés avec vous sur WhatsApp.",
+    "en": "Exchange possible within 48 hours of receiving your order, if the item is new, unworn and unwashed. Message us on WhatsApp with a photo and we will find a solution together. Delivery costs for an exchange are discussed with you on WhatsApp.",
+    "ar": "يمكن الاستبدال خلال 48 ساعة من استلام الطلب، بشرط أن يكون المنتج جديدًا وغير مستعمل وغير مغسول. راسلنا عبر واتساب مع صورة وسنجد حلاً معك. تكاليف التوصيل الخاصة بالاستبدال نتفق عليها معك عبر واتساب."
    }
   }
  },
@@ -1062,29 +1062,6 @@
    "fr": "Maillot Al-Hilal Domicile",
    "en": "Al-Hilal Home Jersey",
    "ar": "قميص الهلال الأساسي",
-   "price": 500,
-   "sizes": true,
-   "rate": 5,
-   "c": "#334155",
-   "best": false,
-   "stock": null,
-   "hidden": false,
-   "custom": false,
-   "old": null,
-   "gallery": [],
-   "desc": {
-    "fr": "",
-    "en": "",
-    "ar": ""
-   }
-  },
-  {
-   "id": 44,
-   "cat": "maillots-simples",
-   "img": "images/maillot-simple-ghana.jpg",
-   "fr": "Maillot Équipe du Ghana Blanc",
-   "en": "Ghana National Team Jersey White",
-   "ar": "قميص منتخب غانا الأبيض",
    "price": 500,
    "sizes": true,
    "rate": 5,
