@@ -548,7 +548,7 @@ let PRODUCTS = [
   {id:50, cat:"maillots-simples", img:"images/maillot-simple-aston-villa.jpg", fr:"Maillot Aston Villa Domicile — sans nom ni numéro", en:"Aston Villa Home Jersey — no name or number", ar:"قميص أستون فيلا الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"}
 ];
 const BEST_DEFAULT = [34,35,1,2,18,24,15,16];
-CATS.forEach(c => { c.img = c.id === "maillots" ? "images/maillot-personnalise-accueil.jpg" : ""; });
+CATS.forEach(c => { c.img = ""; });
 PRODUCTS.forEach(p => { p.best = BEST_DEFAULT.includes(p.id); p.stock = null; p.hidden = false; p.custom = p.cat === "maillots"; });
 const DESC_DEF = {
  "maillots-simples":{fr:"Maillot simple, sans nom ni numéro. Tailles S à XXL.",en:"Plain jersey, no name or number. Sizes S to XXL.",ar:"قميص عادي بدون اسم أو رقم. المقاسات من S إلى XXL."},
@@ -557,7 +557,7 @@ const DESC_DEF = {
  "chaussures":{fr:"Chaussures de foot. Pointures 38 à 45.",en:"Football boots. Sizes 38 to 45.",ar:"أحذية كرة القدم. المقاسات من 38 إلى 45."},
  "chaussettes":{fr:"Chaussettes antidérapantes pour mieux jouer.",en:"Grip socks for better play.",ar:"جوارب مانعة للانزلاق لأداء أفضل."}
 };
-const DEFAULT_STORE = {v:1, settings:{whatsapp:WHATSAPP, rate:RATE_FCFA, images:{emblem:"images/logo-emblem.jpg", logo:"images/logo.jpg", s1:"", s2:"images/maillot-personnalise-accueil.jpg", s3:"", bankily:"images/logo-bankily.jpg", masrvi:"images/logo-masrvi.jpg", sedad:"images/logo-sedad.jpg", wave:"images/logo-wave.jpg"}, trackId:"G-XS8SPXVQWP", payWave:"+221 76 174 28 87", payMr:"38 74 33 32", social:{facebook:"",instagram:"",tiktok:""}, adminHash:"4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265", announce:{fr:"",en:"",ar:""}}, cats:CATS, products:PRODUCTS, reviews:[]};
+const DEFAULT_STORE = {v:1, settings:{whatsapp:WHATSAPP, rate:RATE_FCFA, images:{emblem:"images/logo-emblem.jpg", logo:"images/logo.jpg", s1:"", s2:"", s3:"", bankily:"images/logo-bankily.jpg", masrvi:"images/logo-masrvi.jpg", sedad:"images/logo-sedad.jpg", wave:"images/logo-wave.jpg"}, trackId:"G-XS8SPXVQWP", payWave:"+221 76 174 28 87", payMr:"38 74 33 32", social:{facebook:"",instagram:"",tiktok:""}, adminHash:"4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265", announce:{fr:"",en:"",ar:""}}, cats:CATS, products:PRODUCTS, reviews:[]};
 const IMG_EMBED = window.IMG_EMBED || {};
 const imgSrc = s => IMG_EMBED[s] || s;
 
@@ -669,11 +669,13 @@ function normalizeStore(s){
   s.settings.social = Object.assign({facebook:"",instagram:"",tiktok:""}, s.settings.social || {});
   ["facebook","instagram","tiktok"].forEach(k => { let u=String(s.settings.social[k]||"").trim(); if(u && !/^https?:\/\//i.test(u)) u="https://"+u; s.settings.social[k]=/^https?:\/\//i.test(u)?u:""; });
   s.settings.images = Object.assign({}, clone(d.settings.images), s.settings.images || {});
+  Object.keys(s.settings.images).forEach(k => { if(s.settings.images[k]==="images/maillot-personnalise-accueil.jpg") s.settings.images[k]=""; });
   s.settings.trackId = (s.settings.trackId === undefined ? d.settings.trackId : String(s.settings.trackId || "")).trim().toUpperCase();
   if(!/^(G|GT|GTM)-[A-Z0-9]+$/.test(s.settings.trackId)) s.settings.trackId = "";
   s.settings.whatsapp = String(s.settings.whatsapp || "").replace(/\D/g,"") || d.settings.whatsapp;
   s.settings.rate = Number(s.settings.rate) > 0 ? Number(s.settings.rate) : d.settings.rate;
   s.cats = Array.isArray(s.cats) ? s.cats : clone(d.cats);
+  s.cats.forEach(c => { if(c.img === "images/maillot-personnalise-accueil.jpg") c.img = ""; });
   s.cats.forEach(c => { if(c.img === undefined){ const dc = d.cats.find(x => x.id === c.id); c.img = dc ? dc.img : ""; } });
   s.products = (Array.isArray(s.products) ? s.products : clone(d.products)).map(p => {
     p.id = Number(p.id); p.price = Number(p.price) || 0;
@@ -1025,7 +1027,7 @@ function aCatsHTML(){
 }
 
 /* --- Images du site --- */
-const IMG_SLOTS=[["emblem","Logo de l'en-tête (carré, en haut à gauche)","images/logo-emblem.jpg"],["logo","Logo du pied de page","images/logo.jpg"],["s1","Bannière d'accueil n°1 · « Équipez vos ambitions »",""],["s2","Bannière d'accueil n°2 · « Maillots personnalisés »","images/maillot-personnalise-accueil.jpg"],["s3","Bannière d'accueil n°3 · « Chaussettes antidérapantes »",""],["bankily","Logo de paiement · Bankily","images/logo-bankily.jpg"],["masrvi","Logo de paiement · Masrvi","images/logo-masrvi.jpg"],["sedad","Logo de paiement · Sedad","images/logo-sedad.jpg"],["wave","Logo de paiement · Wave (Sénégal)","images/logo-wave.jpg"]];
+const IMG_SLOTS=[["emblem","Logo de l'en-tête (carré, en haut à gauche)","images/logo-emblem.jpg"],["logo","Logo du pied de page","images/logo.jpg"],["s1","Bannière d'accueil n°1 · « Équipez vos ambitions »",""],["s2","Bannière d'accueil n°2 · « Maillots personnalisés »",""],["s3","Bannière d'accueil n°3 · « Chaussettes antidérapantes »",""],["bankily","Logo de paiement · Bankily","images/logo-bankily.jpg"],["masrvi","Logo de paiement · Masrvi","images/logo-masrvi.jpg"],["sedad","Logo de paiement · Sedad","images/logo-sedad.jpg"],["wave","Logo de paiement · Wave (Sénégal)","images/logo-wave.jpg"]];
 function aImagesHTML(){
   const IM=STORE.settings.images;
   return `<div class="a-card"><h3>Images du site</h3><p class="a-hint">Changez ici les logos et les images des bannières de la page d'accueil. Pour les photos des produits, utilisez l'onglet Produits, bouton « Modifier ». Pour l'image de chaque catégorie, utilisez l'onglet Catégories.</p>`+
