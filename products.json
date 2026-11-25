@@ -3,6 +3,18 @@
  "settings": {
   "whatsapp": "22249743332",
   "rate": 15,
+  "images": {
+   "emblem": "images/logo-emblem.jpg",
+   "logo": "images/logo.jpg",
+   "s1": "",
+   "s2": "images/maillot-personnalise-accueil.jpg",
+   "s3": "",
+   "bankily": "images/logo-bankily.jpg",
+   "masrvi": "images/logo-masrvi.jpg",
+   "sedad": "images/logo-sedad.jpg",
+   "wave": "images/logo-wave.jpg"
+  },
+  "trackId": "G-XS8SPXVQWP",
   "payWave": "+221 76 174 28 87",
   "payMr": "38 74 33 32",
   "social": {
@@ -10,7 +22,7 @@
    "instagram": "",
    "tiktok": ""
   },
-  "adminHash": "4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265",
+  "adminHash": "cd2d79b34060ab245e10c7211ac689c24a46e038390f61f4de3f21c564d63c73",
   "announce": {
    "fr": "",
    "en": "",
@@ -40,35 +52,40 @@
    "e": "👕",
    "fr": "Maillots",
    "en": "Jerseys",
-   "ar": "القمصان"
+   "ar": "القمصان",
+   "img": ""
   },
   {
    "id": "maillots",
    "e": "🎽",
    "fr": "Maillots personnalisés",
    "en": "Custom Jerseys",
-   "ar": "قمصان مخصصة"
+   "ar": "قمصان مخصصة",
+   "img": "images/maillot-personnalise-accueil.jpg"
   },
   {
    "id": "blousons",
    "e": "🧥",
    "fr": "Ensembles blouson + pantalon",
    "en": "Jacket + Pants Sets",
-   "ar": "أطقم سترة وبنطلون"
+   "ar": "أطقم سترة وبنطلون",
+   "img": ""
   },
   {
    "id": "chaussures",
    "e": "👟",
    "fr": "Chaussures de foot",
    "en": "Football Boots",
-   "ar": "أحذية كرة القدم"
+   "ar": "أحذية كرة القدم",
+   "img": ""
   },
   {
    "id": "chaussettes",
    "e": "🧦",
    "fr": "Chaussettes antidérapantes",
    "en": "Grip Socks",
-   "ar": "جوارب مانعة للانزلاق"
+   "ar": "جوارب مانعة للانزلاق",
+   "img": ""
   }
  ],
  "products": [
@@ -1188,7 +1205,7 @@
    "rate": 5,
    "c": "#334155",
    "best": false,
-   "stock": null,
+   "stock": 5,
    "hidden": false,
    "custom": false,
    "old": null,
@@ -1230,7 +1247,7 @@
    "en": "Como Jersey",
    "ar": "قميص كومو",
    "price": 500,
-   "old": 600,
+   "old": null,
    "stock": 5,
    "sizes": true,
    "rate": 5,
@@ -1254,7 +1271,7 @@
    "en": "England Home Jersey",
    "ar": "قميص منتخب إنجلترا",
    "price": 500,
-   "old": 600,
+   "old": null,
    "stock": 5,
    "sizes": false,
    "rate": 5,
