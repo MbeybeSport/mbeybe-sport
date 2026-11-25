@@ -457,6 +457,7 @@ code{background:#eef0f3;padding:1px 6px;border-radius:6px;font-size:12px}
   <div class="d-body" id="cartBody"></div>
   <div class="d-foot">
     <div class="total"><span data-i="total"></span><span id="cartTotal"></span></div>
+    <div id="cartSplit" style="font-size:14px;margin:-4px 0 12px;line-height:1.6"></div>
     <a class="wa-order" id="orderWa" href="#" target="_blank" rel="noopener" data-i="order"></a>
   </div>
 </aside>
@@ -562,7 +563,7 @@ const IMG_EMBED = window.IMG_EMBED || {};
 const imgSrc = s => IMG_EMBED[s] || s;
 
 const T = {
- fr:{infoT:"Infos pratiques",delT:"Livraison",payT:"Paiement",retT:"Échanges et questions",dDeliv:"Nous livrons à Nouakchott. Les frais et le délai vous sont confirmés sur WhatsApp au moment de la commande.",dPay:"Passez votre commande sur WhatsApp : nous vous envoyons ensuite le numéro de paiement. Mauritanie : Bankily, Masrvi ou Sedad au {mr}. Sénégal : Wave au {wave}.",dRet:"Un souci de taille ou de produit ? Écrivez-nous sur WhatsApp, nous cherchons une solution avec vous.",sizeG:"Guide des tailles (indicatif)",sizeNote:"Mesures indicatives : la coupe peut varier selon le modèle. En cas de doute, demandez-nous sur WhatsApp.",chest:"Tour de poitrine (cm)",foot:"Longueur du pied (cm)",sz:"Taille",pt:"Pointure",notAff:"Les noms de clubs sont cités à titre indicatif. MBEYBE SPORT n'est affilié à aucun club ni aucune marque.",pName:"Nom à imprimer",pNum:"Numéro",optional:"facultatif",pPrint:"Nom / n°",soldout:"Rupture de stock",left:"Plus que {n} en stock",nomore:"Stock insuffisant pour ajouter plus.",dir:"ltr",announce:"👋 Bienvenue chez MBEYBE SPORT — Équipez vos ambitions !",fDeliv:"🚚 Livraison à Nouakchott · Paiement : Bankily, Masrvi, Sedad (Mauritanie) · Wave (Sénégal)",cart:"Panier",search:"Rechercher un produit…",home:"Accueil",
+ fr:{infoT:"Infos pratiques",delT:"Livraison",payT:"Paiement",retT:"Échanges et questions",dDeliv:"Nous livrons à Nouakchott. Les frais et le délai vous sont confirmés sur WhatsApp au moment de la commande.",dPay:"Paiement en 2 fois : 50 % à la commande et 50 % à la réception du colis. Passez votre commande sur WhatsApp : nous vous envoyons ensuite le numéro de paiement. Mauritanie : Bankily, Masrvi ou Sedad au {mr}. Sénégal : Wave au {wave}.",dRet:"Un souci de taille ou de produit ? Écrivez-nous sur WhatsApp, nous cherchons une solution avec vous.",sizeG:"Guide des tailles (indicatif)",sizeNote:"Mesures indicatives : la coupe peut varier selon le modèle. En cas de doute, demandez-nous sur WhatsApp.",chest:"Tour de poitrine (cm)",foot:"Longueur du pied (cm)",sz:"Taille",pt:"Pointure",notAff:"Les noms de clubs sont cités à titre indicatif. MBEYBE SPORT n'est affilié à aucun club ni aucune marque.",pName:"Nom à imprimer",pNum:"Numéro",optional:"facultatif",pPrint:"Nom / n°",soldout:"Rupture de stock",left:"Plus que {n} en stock",nomore:"Stock insuffisant pour ajouter plus.",dir:"ltr",announce:"👋 Bienvenue chez MBEYBE SPORT — Équipez vos ambitions !",fDeliv:"🚚 Livraison à Nouakchott · Paiement : Bankily, Masrvi, Sedad (Mauritanie) · Wave (Sénégal)",cart:"Panier",search:"Rechercher un produit…",home:"Accueil",
   h1t:"Équipez vos ambitions",h1p:"Maillots, chaussures et équipements de sport à prix abordables",cta:"Voir tous les produits",
   h2t:"Maillots personnalisés pour votre équipe",h2p:"Choisissez vos couleurs, vos noms et vos numéros",cta2:"Personnaliser",
   h3t:"Chaussettes antidérapantes pour mieux jouer",h3p:"Grip, confort et maintien — plusieurs coloris",
@@ -571,9 +572,9 @@ const T = {
   promoT:"Une équipe ? Un club ? Un événement ?",promoP:"Demandez un devis pour vos tenues personnalisées",promoB:"Demander un devis",
   revT:"Avis de nos clients",r1:"Maillots de très bonne qualité, livrés rapidement. Je recommande !",r2:"Service impeccable sur WhatsApp et paiement facile avec Bankily.",r3:"Belle personnalisation pour mon équipe de quartier, merci.",
   fAbout:"Votre boutique de sport en Mauritanie : équipements, maillots et tenues personnalisées.",fShop:"Boutique",fContact:"Contact",fPlace:"Nouakchott, Mauritanie",fPay:"Paiements acceptés",payMr:"🇲🇷 Paiement en Mauritanie",paySn:"🇸🇳 Paiement au Sénégal",rights:"Tous droits réservés",
-  add:"Ajouter au panier",promo:"Promo",size:"Taille",shoeSize:"Pointure",empty:"Votre panier est vide.",noRes:"Aucun produit trouvé.",total:"Total",order:"Commander sur WhatsApp",view:"Voir le produit",
+  add:"Ajouter au panier",payNow:"À payer maintenant (50 %)",payLater:"À payer à la réception (50 %)",payRule:"Paiement en 2 fois : 50 % à la commande, 50 % à la réception du colis.",promo:"Promo",size:"Taille",shoeSize:"Pointure",empty:"Votre panier est vide.",noRes:"Aucun produit trouvé.",total:"Total",order:"Commander sur WhatsApp",view:"Voir le produit",
   waHello:"Bonjour MBEYBE SPORT, je souhaite commander :",waQuote:"Bonjour MBEYBE SPORT, je souhaite un devis pour des tenues personnalisées.",waHi:"Bonjour MBEYBE SPORT, j'ai une question."},
- en:{infoT:"Useful info",delT:"Delivery",payT:"Payment",retT:"Exchanges & questions",dDeliv:"We deliver in Nouakchott. Fees and delay are confirmed on WhatsApp when you order.",dPay:"Place your order on WhatsApp: we then send you the payment number. Mauritania: Bankily, Masrvi or Sedad at {mr}. Senegal: Wave at {wave}.",dRet:"Size or product issue? Message us on WhatsApp and we will find a solution together.",sizeG:"Size guide (approximate)",sizeNote:"Approximate measurements: fit may vary by model. If in doubt, ask us on WhatsApp.",chest:"Chest (cm)",foot:"Foot length (cm)",sz:"Size",pt:"Shoe size",notAff:"Club names are mentioned for reference only. MBEYBE SPORT is not affiliated with any club or brand.",pName:"Name to print",pNum:"Number",optional:"optional",pPrint:"Name / no.",soldout:"Out of stock",left:"Only {n} left",nomore:"Not enough stock to add more.",dir:"ltr",announce:"👋 Welcome to MBEYBE SPORT — Equip your ambitions!",fDeliv:"🚚 Delivery in Nouakchott · Pay with Bankily, Masrvi, Sedad (Mauritania) · Wave (Senegal)",cart:"Cart",search:"Search a product…",home:"Home",
+ en:{infoT:"Useful info",delT:"Delivery",payT:"Payment",retT:"Exchanges & questions",dDeliv:"We deliver in Nouakchott. Fees and delay are confirmed on WhatsApp when you order.",dPay:"Pay in 2 parts: 50% when you order and 50% when you receive your parcel. Place your order on WhatsApp: we then send you the payment number. Mauritania: Bankily, Masrvi or Sedad at {mr}. Senegal: Wave at {wave}.",dRet:"Size or product issue? Message us on WhatsApp and we will find a solution together.",sizeG:"Size guide (approximate)",sizeNote:"Approximate measurements: fit may vary by model. If in doubt, ask us on WhatsApp.",chest:"Chest (cm)",foot:"Foot length (cm)",sz:"Size",pt:"Shoe size",notAff:"Club names are mentioned for reference only. MBEYBE SPORT is not affiliated with any club or brand.",pName:"Name to print",pNum:"Number",optional:"optional",pPrint:"Name / no.",soldout:"Out of stock",left:"Only {n} left",nomore:"Not enough stock to add more.",dir:"ltr",announce:"👋 Welcome to MBEYBE SPORT — Equip your ambitions!",fDeliv:"🚚 Delivery in Nouakchott · Pay with Bankily, Masrvi, Sedad (Mauritania) · Wave (Senegal)",cart:"Cart",search:"Search a product…",home:"Home",
   h1t:"Equip your ambitions",h1p:"Jerseys, shoes and sports gear at affordable prices",cta:"Shop all products",
   h2t:"Custom jerseys for your team",h2p:"Pick your colors, names and numbers",cta2:"Customize",
   h3t:"Anti-slip grip socks for a better game",h3p:"Grip, comfort and support — several colors",
@@ -582,9 +583,9 @@ const T = {
   promoT:"A team? A club? An event?",promoP:"Request a quote for your custom kits",promoB:"Request a quote",
   revT:"Customer reviews",r1:"Great quality jerseys, delivered fast. Highly recommend!",r2:"Flawless WhatsApp service and easy payment with Bankily.",r3:"Nice customization for my neighborhood team, thanks.",
   fAbout:"Your sports store in Mauritania: gear, jerseys and custom kits.",fShop:"Shop",fContact:"Contact",fPlace:"Nouakchott, Mauritania",fPay:"Accepted payments",payMr:"🇲🇷 Pay in Mauritania",paySn:"🇸🇳 Pay in Senegal",rights:"All rights reserved",
-  add:"Add to cart",promo:"Sale",size:"Size",shoeSize:"Size (EU)",empty:"Your cart is empty.",noRes:"No product found.",total:"Total",order:"Order on WhatsApp",view:"View product",
+  add:"Add to cart",payNow:"To pay now (50%)",payLater:"To pay on delivery (50%)",payRule:"Pay in 2 parts: 50% when you order, 50% when you receive your parcel.",promo:"Sale",size:"Size",shoeSize:"Size (EU)",empty:"Your cart is empty.",noRes:"No product found.",total:"Total",order:"Order on WhatsApp",view:"View product",
   waHello:"Hello MBEYBE SPORT, I would like to order:",waQuote:"Hello MBEYBE SPORT, I would like a quote for custom kits.",waHi:"Hello MBEYBE SPORT, I have a question."},
- ar:{infoT:"معلومات مفيدة",delT:"التوصيل",payT:"الدفع",retT:"التبديل والأسئلة",dDeliv:"نوصّل داخل نواكشوط. يتم تأكيد الرسوم والمدة عبر واتساب عند الطلب.",dPay:"أرسل طلبك عبر واتساب وسنرسل لك رقم الدفع. موريتانيا: Bankily أو Masrvi أو Sedad على الرقم {mr}. السنغال: Wave على الرقم {wave}.",dRet:"مشكلة في المقاس أو المنتج؟ راسلنا عبر واتساب وسنجد حلاً معك.",sizeG:"دليل المقاسات (تقريبي)",sizeNote:"قياسات تقريبية وقد يختلف القَصّ حسب الموديل. عند الشك اسألنا عبر واتساب.",chest:"محيط الصدر (سم)",foot:"طول القدم (سم)",sz:"المقاس",pt:"مقاس الحذاء",notAff:"أسماء الأندية مذكورة للإشارة فقط. MBEYBE SPORT غير تابعة لأي نادٍ أو علامة تجارية.",pName:"الاسم المطبوع",pNum:"الرقم",optional:"اختياري",pPrint:"الاسم / الرقم",soldout:"نفد من المخزون",left:"بقي {n} فقط",nomore:"المخزون غير كافٍ.",dir:"rtl",announce:"👋 مرحبًا بكم في MBEYBE SPORT — جهّزوا طموحاتكم!",fDeliv:"🚚 التوصيل في نواكشوط · الدفع عبر Bankily وMasrvi وSedad (موريتانيا) · Wave (السنغال)",cart:"السلة",search:"ابحث عن منتج…",home:"الرئيسية",
+ ar:{infoT:"معلومات مفيدة",delT:"التوصيل",payT:"الدفع",retT:"التبديل والأسئلة",dDeliv:"نوصّل داخل نواكشوط. يتم تأكيد الرسوم والمدة عبر واتساب عند الطلب.",dPay:"الدفع على دفعتين: 50٪ عند الطلب و50٪ عند استلام الطرد. أرسل طلبك عبر واتساب وسنرسل لك رقم الدفع. موريتانيا: Bankily أو Masrvi أو Sedad على الرقم {mr}. السنغال: Wave على الرقم {wave}.",dRet:"مشكلة في المقاس أو المنتج؟ راسلنا عبر واتساب وسنجد حلاً معك.",sizeG:"دليل المقاسات (تقريبي)",sizeNote:"قياسات تقريبية وقد يختلف القَصّ حسب الموديل. عند الشك اسألنا عبر واتساب.",chest:"محيط الصدر (سم)",foot:"طول القدم (سم)",sz:"المقاس",pt:"مقاس الحذاء",notAff:"أسماء الأندية مذكورة للإشارة فقط. MBEYBE SPORT غير تابعة لأي نادٍ أو علامة تجارية.",pName:"الاسم المطبوع",pNum:"الرقم",optional:"اختياري",pPrint:"الاسم / الرقم",soldout:"نفد من المخزون",left:"بقي {n} فقط",nomore:"المخزون غير كافٍ.",dir:"rtl",announce:"👋 مرحبًا بكم في MBEYBE SPORT — جهّزوا طموحاتكم!",fDeliv:"🚚 التوصيل في نواكشوط · الدفع عبر Bankily وMasrvi وSedad (موريتانيا) · Wave (السنغال)",cart:"السلة",search:"ابحث عن منتج…",home:"الرئيسية",
   h1t:"جهّز طموحاتك",h1p:"قمصان وأحذية ومعدات رياضية بأسعار مناسبة",cta:"عرض كل المنتجات",
   h2t:"قمصان مخصصة لفريقك",h2p:"اختر ألوانك وأسماءك وأرقامك",cta2:"تخصيص",
   h3t:"جوارب مانعة للانزلاق لأداء أفضل",h3p:"ثبات وراحة ودعم — عدة ألوان",
@@ -593,7 +594,7 @@ const T = {
   promoT:"فريق؟ نادي؟ مناسبة؟",promoP:"اطلب عرض سعر لأطقمك المخصصة",promoB:"اطلب عرض سعر",
   revT:"آراء العملاء",r1:"قمصان بجودة ممتازة وتوصيل سريع. أنصح بها!",r2:"خدمة رائعة على واتساب ودفع سهل عبر Bankily.",r3:"تخصيص جميل لفريق حينا، شكرًا.",
   fAbout:"متجرك الرياضي في موريتانيا: معدات وقمصان وأطقم مخصصة.",fShop:"المتجر",fContact:"اتصل بنا",fPlace:"نواكشوط، موريتانيا",fPay:"وسائل الدفع",payMr:"🇲🇷 الدفع في موريتانيا",paySn:"🇸🇳 الدفع في السنغال",rights:"جميع الحقوق محفوظة",
-  add:"أضف إلى السلة",promo:"تخفيض",size:"المقاس",shoeSize:"المقاس (EU)",empty:"سلتك فارغة.",noRes:"لا توجد منتجات.",total:"المجموع",order:"اطلب عبر واتساب",view:"عرض المنتج",
+  add:"أضف إلى السلة",payNow:"للدفع الآن (50٪)",payLater:"للدفع عند الاستلام (50٪)",payRule:"الدفع على دفعتين: 50٪ عند الطلب و50٪ عند استلام الطرد.",promo:"تخفيض",size:"المقاس",shoeSize:"المقاس (EU)",empty:"سلتك فارغة.",noRes:"لا توجد منتجات.",total:"المجموع",order:"اطلب عبر واتساب",view:"عرض المنتج",
   waHello:"مرحبًا MBEYBE SPORT، أريد طلب:",waQuote:"مرحبًا MBEYBE SPORT، أريد عرض سعر لأطقم مخصصة.",waHi:"مرحبًا MBEYBE SPORT، لدي سؤال."}
 };
 
@@ -827,8 +828,10 @@ function renderCart(){
   }).join("") : `<p class="empty" style="padding:40px 0;text-align:center;color:var(--muted)">${t("empty")}</p>`;
   const total = cart.reduce((s,l)=>s+PRODUCTS.find(x=>x.id===l.id).price*l.q,0);
   $("#cartTotal").textContent = money(total);
+  const dep = Math.ceil(total/2), rest = total-dep;
+  $("#cartSplit").innerHTML = cart.length ? `<div style="display:flex;justify-content:space-between"><span>${t("payNow")}</span><b>${money(dep)}</b></div><div style="display:flex;justify-content:space-between"><span>${t("payLater")}</span><b>${money(rest)}</b></div><div style="color:var(--muted);font-size:12.5px;margin-top:4px">${t("payRule")}</div>` : "";
   const lines = cart.map(l=>{const p=PRODUCTS.find(x=>x.id===l.id);return `• ${l.q} × ${nm(p)}${l.size?" ("+l.size+")":""}${(l.n||l.x)?" ["+(l.n||"")+(l.n&&l.x?" ":"")+(l.x?"#"+l.x:"")+"]":""} — ${money(p.price*l.q)}`}).join("\n");
-  $("#orderWa").href = cart.length ? waLink(t("waHello")+"\n"+lines+"\n"+t("total")+": "+money(total)) : waLink(t("waHi"));
+  $("#orderWa").href = cart.length ? waLink(t("waHello")+"\n"+lines+"\n"+t("total")+": "+money(total)+"\n"+t("payNow")+": "+money(dep)+"\n"+t("payLater")+": "+money(rest)) : waLink(t("waHi"));
 }
 function openDrawer(){$("#drawer").classList.add("on");$("#overlay").classList.add("on");}
 function closeDrawer(){$("#drawer").classList.remove("on");$("#overlay").classList.remove("on");}
@@ -1154,6 +1157,7 @@ function aReceiptHTML(){
       <label class="f">Frais de livraison (MRU)<input data-rc="deliv" type="number" min="0" inputmode="numeric" value="${RC.deliv||0}"></label>
       <label class="f">Mode de paiement<select data-rc="method">${["Espèces","Bankily","Masrvi","Sedad","Wave","Paiement à la livraison"].map(m=>`<option${RC.method===m?" selected":""}>${m}</option>`).join("")}</select></label>
       <label class="f">Montant payé (MRU) — vide = tout payé<input data-rc="paid" type="number" min="0" inputmode="numeric" value="${RC.paid===null?"":RC.paid}" placeholder="${Math.round(T.total)}"></label>
+      <div class="a-actions" style="justify-content:flex-start;grid-column:1/-1;margin:0"><button class="a-btn" data-rcact="half">Acompte 50 % (${Math.ceil(T.total/2)} MRU)</button><button class="a-btn" data-rcact="full">Tout payé</button></div>
       <label class="f">Remarque (facultatif)<input data-rc="note" value="${esc(RC.note)}"></label></div></div>
     <div class="a-card"><h3>Aperçu</h3><canvas id="rcCanvas" style="width:100%;max-width:420px;border:1px solid var(--line);border-radius:8px;background:#fff;display:block"></canvas>
       <div class="a-actions" style="justify-content:flex-start;flex-wrap:wrap"><button class="a-btn primary" data-rcact="share">Envoyer / Enregistrer l'image</button><button class="a-btn" data-rcact="print">Imprimer / PDF</button><button class="a-btn" data-rcact="done">Terminer et nouveau reçu</button></div>
@@ -1227,6 +1231,8 @@ aBody.addEventListener("change", e => {
 aBody.addEventListener("click", async e => {
   const b=e.target.closest("[data-rcact]"); if(!b) return; rcInit();
   const a=b.dataset.rcact;
+  if(a==="half"){ RC.paid=Math.ceil(rcTotals().total/2); rcSave(); renderAdmin(); return; }
+  if(a==="full"){ RC.paid=null; rcSave(); renderAdmin(); return; }
   if(a==="free"){ RC.lines.push({d:"",q:1,p:0}); rcSave(); renderAdmin(); }
   else if(a==="del"){ RC.lines.splice(+b.closest("[data-ri]").dataset.ri,1); rcSave(); renderAdmin(); }
   else if(a==="share"){
