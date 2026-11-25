@@ -7,6 +7,17 @@
 <meta name="description" content="Mbeybe Sport : maillots, chaussures, équipements et tenues personnalisées en Mauritanie. Commande par WhatsApp, paiement Wave, Bankily, Masrvi, Sedad.">
 <link rel="icon" href="images/logo-emblem.jpg">
 <meta name="theme-color" content="#0b6b3a">
+<link rel="canonical" href="https://mbeybesport.github.io/mbeybe-sport/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"MBEYBE SPORT","url":"https://mbeybesport.github.io/mbeybe-sport/","logo":"https://mbeybesport.github.io/mbeybe-sport/images/logo.jpg","image":"https://mbeybesport.github.io/mbeybe-sport/images/logo.jpg","description":"Maillots, chaussures et équipements de sport en Mauritanie. Commande par WhatsApp.","telephone":"+22249743332","areaServed":"Nouakchott, Mauritanie","priceRange":"150-1200 MRU","currenciesAccepted":"MRU"}</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N6JHLZB8"></script>
+<script>
+window.__gaStatic="GTM-N6JHLZB8";
+try{ if(sessionStorage.getItem("mb_admin")==="1") window["ga-disable-G-XS8SPXVQWP"]=true; }catch(e){}
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MBEYBE SPORT">
 <meta property="og:title" content="MBEYBE SPORT — Équipez vos ambitions">
@@ -235,6 +246,18 @@ body.rtl .drawer{transform:translateX(-105%)}
 .sizeg small{color:var(--muted);display:block;margin-top:6px}
 .rev small{color:var(--muted)}
 .notaff{text-align:center;font-size:12px;color:#94a3b8;padding:0 16px 10px}
+.slide.has-img{grid-template-columns:1.1fr 1fr;gap:28px;text-align:start;max-width:none}
+.slide.has-img .in{justify-self:end;max-width:560px}
+.slide.has-img .big{display:none}
+.slide .pic{position:relative;z-index:1;justify-self:start}
+.slide .pic img{max-height:340px;width:auto;max-width:100%;border-radius:16px;background:#fff;display:block;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+@media(max-width:760px){.slide.has-img{grid-template-columns:1fr;text-align:center;gap:16px;padding:32px 16px}.slide.has-img .in,.slide .pic{justify-self:center}.slide .pic img{max-height:200px}}
+.cat .ci{height:84px;width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto;border-radius:8px;background:#fff}
+.a-imgrow{display:flex;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.a-imgrow:first-of-type{border-top:0}
+.a-imgrow img{width:84px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px}
+.a-imgrow .none{width:84px;height:64px;display:grid;place-items:center;border:1px dashed var(--line);border-radius:8px;font-size:11px;color:var(--muted)}
+.a-imgrow b{flex:1;min-width:160px;font-size:14px}
 /* ===== Espace admin ===== */
 #admin,#login,#aModal{direction:ltr;text-align:left;font-family:'Poppins',system-ui,sans-serif}
 #admin{position:fixed;inset:0;background:#f4f5f7;z-index:200;display:none;flex-direction:column;color:var(--ink)}
@@ -274,6 +297,8 @@ body.rtl .drawer{transform:translateX(-105%)}
 .pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-inline-start:6px;display:inline-block;width:fit-content}
 .pill.out{background:#fee2e2;color:#b91c1c}
 .pill.gray{background:#e5e7eb;color:#374151}
+.a-rl{display:grid;grid-template-columns:3fr 70px 100px auto;gap:8px;margin-bottom:8px}
+.a-rl input{min-width:0}
 .a-crow{display:grid;grid-template-columns:64px 1fr 1fr 1fr auto;gap:8px;align-items:center;margin-bottom:8px}
 .a-crow .e{text-align:center}
 .a-steps,.a-list{padding-inline-start:20px;font-size:14px;display:flex;flex-direction:column;gap:6px;margin:8px 0 14px}
@@ -303,6 +328,7 @@ code{background:#eef0f3;padding:1px 6px;border-radius:6px;font-size:12px}
 </style>
 </head>
 <body>
+<noscript><p style="padding:24px;text-align:center;font-family:sans-serif">MBEYBE SPORT : activez JavaScript pour voir la boutique, ou commandez directement sur <a href="https://wa.me/22249743332">WhatsApp +222 49 74 33 32</a>.</p></noscript>
 
 <!-- Barre d'annonce -->
 <div class="topbar"><div class="container">
@@ -318,7 +344,7 @@ code{background:#eef0f3;padding:1px 6px;border-radius:6px;font-size:12px}
   <div class="container">
     <div class="head-row">
       <button class="burger" id="burger" aria-label="Menu">☰</button>
-      <a href="#top" class="logo"><img src="images/logo-emblem.jpg" alt="Mbeybe Sport" class="logo-img"><b>MBEYBE <span>SPORT</span></b></a>
+      <a href="#top" class="logo"><img src="images/logo-emblem.jpg" alt="Mbeybe Sport" class="logo-img" id="logoImg"><b>MBEYBE <span>SPORT</span></b></a>
       <form class="search" id="searchForm"><input id="q" type="search" autocomplete="off"><button type="submit">🔍</button></form>
       <button class="cart-btn" id="openCart">🛒 <span id="t-cart"></span> <b id="count">0</b></button>
     </div>
@@ -330,9 +356,9 @@ code{background:#eef0f3;padding:1px 6px;border-radius:6px;font-size:12px}
 <!-- Bannière -->
 <section class="hero" aria-label="Promotions">
   <div class="slides" id="slides">
-    <div class="slide s1"><span class="big">⚽</span><div class="in"><h1 data-i="h1t"></h1><p data-i="h1p"></p><a class="btn" href="#produits" data-i="cta"></a></div></div>
-    <div class="slide s2"><span class="big">👕</span><div class="in"><h1 data-i="h2t"></h1><p data-i="h2p"></p><a class="btn" href="#custom" data-i="cta2"></a></div></div>
-    <div class="slide s3"><span class="big">🧦</span><div class="in"><h1 data-i="h3t"></h1><p data-i="h3p"></p><a class="btn" href="#produits" data-i="cta"></a></div></div>
+    <div class="slide s1"><span class="big">⚽</span><div class="in"><h1 data-i="h1t"></h1><p data-i="h1p"></p><a class="btn" href="#produits" data-i="cta"></a></div><div class="pic" id="pic1" hidden></div></div>
+    <div class="slide s2"><span class="big">👕</span><div class="in"><h1 data-i="h2t"></h1><p data-i="h2p"></p><a class="btn" href="#custom" data-i="cta2"></a></div><div class="pic" id="pic2" hidden></div></div>
+    <div class="slide s3"><span class="big">🧦</span><div class="in"><h1 data-i="h3t"></h1><p data-i="h3p"></p><a class="btn" href="#produits" data-i="cta"></a></div><div class="pic" id="pic3" hidden></div></div>
   </div>
   <div class="dots" id="dots"></div>
 </section>
@@ -392,7 +418,7 @@ code{background:#eef0f3;padding:1px 6px;border-radius:6px;font-size:12px}
 <!-- Pied de page -->
 <footer>
   <div class="container foot">
-    <div><div class="foot-logo"><img src="images/logo.jpg" alt="Mbeybe Sport — Équipez vos ambitions"></div><p data-i="fAbout"></p></div>
+    <div><div class="foot-logo"><img id="footLogoImg" src="images/logo.jpg" alt="Mbeybe Sport — Équipez vos ambitions"></div><p data-i="fAbout"></p></div>
     <div><h4 data-i="fShop"></h4><ul id="fCats"></ul></div>
     <div><h4 data-i="fContact"></h4><ul>
       <li><a id="fWa" href="#" target="_blank" rel="noopener">WhatsApp +222 49 74 33 32</a></li>
@@ -408,12 +434,12 @@ code{background:#eef0f3;padding:1px 6px;border-radius:6px;font-size:12px}
     <div class="pay-groups">
       <div class="pay-group"><div class="pay-label" data-i="payMr"></div>
         <div class="pay-logos">
-          <img src="images/logo-bankily.jpg" alt="Bankily">
-          <img src="images/logo-masrvi.jpg" alt="Masrvi">
-          <img src="images/logo-sedad.jpg" alt="Sedad Bank">
+          <img src="images/logo-bankily.jpg" alt="Bankily" id="payImgBankily">
+          <img src="images/logo-masrvi.jpg" alt="Masrvi" id="payImgMasrvi">
+          <img src="images/logo-sedad.jpg" alt="Sedad Bank" id="payImgSedad">
         </div><div class="pay-num" id="payMrNum"></div></div>
       <div class="pay-group"><div class="pay-label" data-i="paySn"></div>
-        <div class="pay-logos"><img src="images/logo-wave.jpg" alt="Wave" class="wave"></div><div class="pay-num" id="payWaveNum"></div></div>
+        <div class="pay-logos"><img src="images/logo-wave.jpg" alt="Wave" class="wave" id="payImgWave"></div><div class="pay-num" id="payWaveNum"></div></div>
     </div>
   </div>
   <div class="notaff" data-i="notAff"></div>
@@ -502,25 +528,26 @@ let PRODUCTS = [
   {id:31, cat:"blousons", img:"images/blouson-psg-blanc-marine.jpg", fr:"Ensemble blouson + pantalon Paris Saint-Germain blanc/bleu marine", en:"Paris Saint-Germain Jacket + Pants Set White/Navy", ar:"طقم سترة وبنطلون باريس سان جيرمان أبيض/كحلي", price:1200, sizes:true, rate:5, c:"#1f2937"},
   {id:32, cat:"blousons", img:"images/blouson-psg-blanc-noir.jpg", fr:"Ensemble blouson + pantalon Paris Saint-Germain blanc/noir", en:"Paris Saint-Germain Jacket + Pants Set White/Black", ar:"طقم سترة وبنطلون باريس سان جيرمان أبيض/أسود", price:1200, sizes:true, rate:5, c:"#1f2937"},
   {id:33, cat:"blousons", img:"images/blouson-nike-bordeaux.jpg", fr:"Ensemble blouson + pantalon Nike bordeaux/noir motif", en:"Nike Jacket + Pants Set Burgundy/Black Pattern", ar:"طقم سترة وبنطلون نايك عنابي/أسود بنقش", price:1200, sizes:true, rate:5, c:"#1f2937"},
-  {id:34, cat:"maillots-simples", img:"images/maillot-simple-arsenal.jpg", fr:"Maillot Arsenal Domicile", en:"Arsenal Home Jersey", ar:"قميص أرسنال الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:35, cat:"maillots-simples", img:"images/maillot-simple-real-madrid.jpg", fr:"Maillot Real Madrid Blanc", en:"Real Madrid White Jersey", ar:"قميص ريال مدريد الأبيض", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:36, cat:"maillots-simples", img:"images/maillot-simple-man-united.jpg", fr:"Maillot Manchester United Domicile", en:"Manchester United Home Jersey", ar:"قميص مانشستر يونايتد الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:37, cat:"maillots-simples", img:"images/maillot-simple-man-city.jpg", fr:"Maillot Manchester City Domicile", en:"Manchester City Home Jersey", ar:"قميص مانشستر سيتي الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:38, cat:"maillots-simples", img:"images/maillot-simple-chelsea.jpg", fr:"Maillot Chelsea Domicile", en:"Chelsea Home Jersey", ar:"قميص تشيلسي الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:39, cat:"maillots-simples", img:"images/maillot-simple-bayern.jpg", fr:"Maillot Bayern Munich Domicile", en:"Bayern Munich Home Jersey", ar:"قميص بايرن ميونخ الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:40, cat:"maillots-simples", img:"images/maillot-simple-al-nassr.jpg", fr:"Maillot Al-Nassr Domicile", en:"Al-Nassr Home Jersey", ar:"قميص النصر الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:41, cat:"maillots-simples", img:"images/maillot-simple-algerie.jpg", fr:"Maillot Équipe d'Algérie Vert", en:"Algeria National Team Jersey Green", ar:"قميص منتخب الجزائر الأخضر", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:42, cat:"maillots-simples", img:"images/maillot-simple-maroc.jpg", fr:"Maillot Équipe du Maroc Rouge", en:"Morocco National Team Jersey Red", ar:"قميص منتخب المغرب الأحمر", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:43, cat:"maillots-simples", img:"images/maillot-simple-al-hilal.jpg", fr:"Maillot Al-Hilal Domicile", en:"Al-Hilal Home Jersey", ar:"قميص الهلال الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:44, cat:"maillots-simples", img:"images/maillot-simple-ghana.jpg", fr:"Maillot Équipe du Ghana Blanc", en:"Ghana National Team Jersey White", ar:"قميص منتخب غانا الأبيض", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:45, cat:"maillots-simples", img:"images/maillot-simple-mauritanie.jpg", fr:"Maillot Équipe de Mauritanie Vert", en:"Mauritania National Team Jersey Green", ar:"قميص منتخب موريتانيا الأخضر", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:46, cat:"maillots-simples", img:"images/maillot-simple-atletico.jpg", fr:"Maillot Atlético de Madrid Domicile", en:"Atlético Madrid Home Jersey", ar:"قميص أتلتيكو مدريد الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:47, cat:"maillots-simples", img:"images/maillot-simple-tottenham.jpg", fr:"Maillot Tottenham Domicile", en:"Tottenham Home Jersey", ar:"قميص توتنهام الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:48, cat:"maillots-simples", img:"images/maillot-simple-juventus.jpg", fr:"Maillot Juventus Domicile", en:"Juventus Home Jersey", ar:"قميص يوفنتوس الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:49, cat:"maillots-simples", img:"images/maillot-simple-inter.jpg", fr:"Maillot Inter Milan Domicile", en:"Inter Milan Home Jersey", ar:"قميص إنتر ميلان الأساسي", price:500, sizes:true, rate:5, c:"#334155"},
-  {id:50, cat:"maillots-simples", img:"images/maillot-simple-aston-villa.jpg", fr:"Maillot Aston Villa Domicile", en:"Aston Villa Home Jersey", ar:"قميص أستون فيلا الأساسي", price:500, sizes:true, rate:5, c:"#334155"}
+  {id:34, cat:"maillots-simples", img:"images/maillot-simple-arsenal.jpg", fr:"Maillot Arsenal Domicile — sans nom ni numéro", en:"Arsenal Home Jersey — no name or number", ar:"قميص أرسنال الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:35, cat:"maillots-simples", img:"images/maillot-simple-real-madrid.jpg", fr:"Maillot Real Madrid Blanc — sans nom ni numéro", en:"Real Madrid White Jersey — no name or number", ar:"قميص ريال مدريد الأبيض — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:36, cat:"maillots-simples", img:"images/maillot-simple-man-united.jpg", fr:"Maillot Manchester United Domicile — sans nom ni numéro", en:"Manchester United Home Jersey — no name or number", ar:"قميص مانشستر يونايتد الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:37, cat:"maillots-simples", img:"images/maillot-simple-man-city.jpg", fr:"Maillot Manchester City Domicile — sans nom ni numéro", en:"Manchester City Home Jersey — no name or number", ar:"قميص مانشستر سيتي الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:38, cat:"maillots-simples", img:"images/maillot-simple-chelsea.jpg", fr:"Maillot Chelsea Domicile — sans nom ni numéro", en:"Chelsea Home Jersey — no name or number", ar:"قميص تشيلسي الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:39, cat:"maillots-simples", img:"images/maillot-simple-bayern.jpg", fr:"Maillot Bayern Munich Domicile — sans nom ni numéro", en:"Bayern Munich Home Jersey — no name or number", ar:"قميص بايرن ميونخ الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:40, cat:"maillots-simples", img:"images/maillot-simple-al-nassr.jpg", fr:"Maillot Al-Nassr Domicile — sans nom ni numéro", en:"Al-Nassr Home Jersey — no name or number", ar:"قميص النصر الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:41, cat:"maillots-simples", img:"images/maillot-simple-algerie.jpg", fr:"Maillot Équipe d'Algérie Vert — sans nom ni numéro", en:"Algeria National Team Jersey Green — no name or number", ar:"قميص منتخب الجزائر الأخضر — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:42, cat:"maillots-simples", img:"images/maillot-simple-maroc.jpg", fr:"Maillot Équipe du Maroc Rouge — sans nom ni numéro", en:"Morocco National Team Jersey Red — no name or number", ar:"قميص منتخب المغرب الأحمر — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:43, cat:"maillots-simples", img:"images/maillot-simple-al-hilal.jpg", fr:"Maillot Al-Hilal Domicile — sans nom ni numéro", en:"Al-Hilal Home Jersey — no name or number", ar:"قميص الهلال الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:44, cat:"maillots-simples", img:"images/maillot-simple-ghana.jpg", fr:"Maillot Équipe du Ghana Blanc — sans nom ni numéro", en:"Ghana National Team Jersey White — no name or number", ar:"قميص منتخب غانا الأبيض — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:45, cat:"maillots-simples", img:"images/maillot-simple-mauritanie.jpg", fr:"Maillot Équipe de Mauritanie Vert — sans nom ni numéro", en:"Mauritania National Team Jersey Green — no name or number", ar:"قميص منتخب موريتانيا الأخضر — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:46, cat:"maillots-simples", img:"images/maillot-simple-atletico.jpg", fr:"Maillot Atlético de Madrid Domicile — sans nom ni numéro", en:"Atlético Madrid Home Jersey — no name or number", ar:"قميص أتلتيكو مدريد الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:47, cat:"maillots-simples", img:"images/maillot-simple-tottenham.jpg", fr:"Maillot Tottenham Domicile — sans nom ni numéro", en:"Tottenham Home Jersey — no name or number", ar:"قميص توتنهام الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:48, cat:"maillots-simples", img:"images/maillot-simple-juventus.jpg", fr:"Maillot Juventus Domicile — sans nom ni numéro", en:"Juventus Home Jersey — no name or number", ar:"قميص يوفنتوس الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:49, cat:"maillots-simples", img:"images/maillot-simple-inter.jpg", fr:"Maillot Inter Milan Domicile — sans nom ni numéro", en:"Inter Milan Home Jersey — no name or number", ar:"قميص إنتر ميلان الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"},
+  {id:50, cat:"maillots-simples", img:"images/maillot-simple-aston-villa.jpg", fr:"Maillot Aston Villa Domicile — sans nom ni numéro", en:"Aston Villa Home Jersey — no name or number", ar:"قميص أستون فيلا الأساسي — بدون اسم أو رقم", price:500, sizes:true, rate:5, c:"#334155"}
 ];
 const BEST_DEFAULT = [34,35,1,2,18,24,15,16];
+CATS.forEach(c => { c.img = c.id === "maillots" ? "images/maillot-personnalise-accueil.jpg" : ""; });
 PRODUCTS.forEach(p => { p.best = BEST_DEFAULT.includes(p.id); p.stock = null; p.hidden = false; p.custom = p.cat === "maillots"; });
 const DESC_DEF = {
  "maillots-simples":{fr:"Maillot simple, sans nom ni numéro. Tailles S à XXL.",en:"Plain jersey, no name or number. Sizes S to XXL.",ar:"قميص عادي بدون اسم أو رقم. المقاسات من S إلى XXL."},
@@ -529,7 +556,7 @@ const DESC_DEF = {
  "chaussures":{fr:"Chaussures de foot. Pointures 38 à 45.",en:"Football boots. Sizes 38 to 45.",ar:"أحذية كرة القدم. المقاسات من 38 إلى 45."},
  "chaussettes":{fr:"Chaussettes antidérapantes pour mieux jouer.",en:"Grip socks for better play.",ar:"جوارب مانعة للانزلاق لأداء أفضل."}
 };
-const DEFAULT_STORE = {v:1, settings:{whatsapp:WHATSAPP, rate:RATE_FCFA, payWave:"+221 76 174 28 87", payMr:"38 74 33 32", social:{facebook:"",instagram:"",tiktok:""}, adminHash:"4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265", announce:{fr:"",en:"",ar:""}}, cats:CATS, products:PRODUCTS, reviews:[]};
+const DEFAULT_STORE = {v:1, settings:{whatsapp:WHATSAPP, rate:RATE_FCFA, images:{emblem:"images/logo-emblem.jpg", logo:"images/logo.jpg", s1:"", s2:"images/maillot-personnalise-accueil.jpg", s3:"", bankily:"images/logo-bankily.jpg", masrvi:"images/logo-masrvi.jpg", sedad:"images/logo-sedad.jpg", wave:"images/logo-wave.jpg"}, trackId:"GTM-N6JHLZB8", payWave:"+221 76 174 28 87", payMr:"38 74 33 32", social:{facebook:"",instagram:"",tiktok:""}, adminHash:"4b2dff0eb6ff035a230df9eb1ce962aefc32c0b7ea31f62bc6ac15d7fdd97265", announce:{fr:"",en:"",ar:""}}, cats:CATS, products:PRODUCTS, reviews:[]};
 const IMG_EMBED = window.IMG_EMBED || {};
 const imgSrc = s => IMG_EMBED[s] || s;
 
@@ -640,9 +667,13 @@ function normalizeStore(s){
   s.settings.payMr = String(s.settings.payMr || d.settings.payMr).trim();
   s.settings.social = Object.assign({facebook:"",instagram:"",tiktok:""}, s.settings.social || {});
   ["facebook","instagram","tiktok"].forEach(k => { let u=String(s.settings.social[k]||"").trim(); if(u && !/^https?:\/\//i.test(u)) u="https://"+u; s.settings.social[k]=/^https?:\/\//i.test(u)?u:""; });
+  s.settings.images = Object.assign({}, clone(d.settings.images), s.settings.images || {});
+  s.settings.trackId = (s.settings.trackId === undefined ? d.settings.trackId : String(s.settings.trackId || "")).trim().toUpperCase();
+  if(!/^(G|GT|GTM)-[A-Z0-9]+$/.test(s.settings.trackId)) s.settings.trackId = "";
   s.settings.whatsapp = String(s.settings.whatsapp || "").replace(/\D/g,"") || d.settings.whatsapp;
   s.settings.rate = Number(s.settings.rate) > 0 ? Number(s.settings.rate) : d.settings.rate;
   s.cats = Array.isArray(s.cats) ? s.cats : clone(d.cats);
+  s.cats.forEach(c => { if(c.img === undefined){ const dc = d.cats.find(x => x.id === c.id); c.img = dc ? dc.img : ""; } });
   s.products = (Array.isArray(s.products) ? s.products : clone(d.products)).map(p => {
     p.id = Number(p.id); p.price = Number(p.price) || 0;
     p.old = (p.old === null || p.old === undefined || p.old === "") ? null : (Number(p.old) || null);
@@ -673,12 +704,22 @@ function saveDraft(){
   else safeDel("mb_draft");
   renderStatic(); updateStatus();
 }
+let trackLoaded=false;
+function loadTracking(){
+  const id=STORE.settings.trackId;
+  if(trackLoaded || !id || id===window.__gaStatic || isAdmin() || !/^https?:$/.test(location.protocol) || window.top!==window) return;
+  trackLoaded=true; window.dataLayer=window.dataLayer||[];
+  const sc=document.createElement("script"); sc.async=true;
+  if(id.startsWith("GTM-")){ window.dataLayer.push({"gtm.start":Date.now(),event:"gtm.js"}); sc.src="https://www.googletagmanager.com/gtm.js?id="+id; }
+  else { window.gtag=function(){window.dataLayer.push(arguments)}; sc.src="https://www.googletagmanager.com/gtag/js?id="+id; window.gtag("js",new Date()); window.gtag("config",id); }
+  document.head.appendChild(sc);
+}
 function boot(){
   setBase(clone(DEFAULT_STORE)); renderStatic();
   fetch("products.json?v="+Date.now(), {cache:"no-store"})
     .then(r => r.ok ? r.json() : Promise.reject())
-    .then(j => { if(j && Array.isArray(j.products) && Array.isArray(j.cats)){ setBase(j); renderStatic(); if($("#admin").classList.contains("on")) renderAdmin(); } })
-    .catch(()=>{});
+    .then(j => { if(j && Array.isArray(j.products) && Array.isArray(j.cats)){ setBase(j); renderStatic(); loadTracking(); if($("#admin").classList.contains("on")) renderAdmin(); } })
+    .catch(()=>{}).then(loadTracking);
 }
 
 /* ============ RENDU DE LA BOUTIQUE ============ */
@@ -708,7 +749,7 @@ function renderStatic(){
     CATS.map(c=>`<li><a href="#shop" onclick="setFilter('${c.id}')">${esc(cn(c))}</a></li>`).join("")+
     `<li><a href="#infos" onclick="$('#menu').classList.remove('on')">${t("infoT")}</a></li>`+
     `<li class="adm-li"><a href="#" onclick="adminEntry();return false">⚙ Admin</a></li>`;
-  $("#cats").innerHTML = CATS.map(c=>`<a class="cat" href="#shop" onclick="setFilter('${c.id}')"><div class="e">${esc(c.e)}</div><span>${esc(cn(c))}</span></a>`).join("");
+  $("#cats").innerHTML = CATS.map(c=>`<a class="cat" href="#shop" onclick="setFilter('${c.id}')">${c.img?`<img class="ci" src="${esc(imgSrc(c.img))}" alt="">`:`<div class="e">${esc(c.e)}</div>`}<span>${esc(cn(c))}</span></a>`).join("");
   $("#fCats").innerHTML = CATS.map(c=>`<li><a href="#shop" onclick="setFilter('${c.id}')">${esc(cn(c))}</a></li>`).join("");
   const best = PRODUCTS.filter(p=>p.best && !p.hidden);
   $("#bestGrid").innerHTML = best.map(card).join("");
@@ -722,6 +763,10 @@ const SIZE_J=[["S","86–94"],["M","94–102"],["L","102–110"],["XL","110–11
 const SIZE_S=[["38","24,0"],["39","24,7"],["40","25,3"],["41","26,0"],["42","26,7"],["43","27,3"],["44","28,0"],["45","28,7"]];
 function sizeTable(rows,a,b){return `<tr><th>${a}</th>${rows.map(r=>`<th>${r[0]}</th>`).join("")}</tr><tr><td>${b}</td>${rows.map(r=>`<td>${r[1]}</td>`).join("")}</tr>`;}
 function renderExtra(){
+  const IM=STORE.settings.images;
+  $("#logoImg").src=imgSrc(IM.emblem||"images/logo-emblem.jpg"); $("#footLogoImg").src=imgSrc(IM.logo||"images/logo.jpg");
+  [["bankily","Bankily"],["masrvi","Masrvi"],["sedad","Sedad"],["wave","Wave"]].forEach(([k,n])=>{ $("#payImg"+n).src=imgSrc(IM[k]||"images/logo-"+k+".jpg"); });
+  [1,2,3].forEach(n=>{ const u=IM["s"+n], pc=$("#pic"+n); pc.hidden=!u; pc.innerHTML=u?`<img src="${esc(imgSrc(u))}" alt="">`:""; pc.parentElement.classList.toggle("has-img",!!u); });
   const I=STORE.settings.info;
   const blk=(k,tt,d)=>`<div class="info"><h3>${t(tt)}</h3><p>${esc(I[k][lang]||t(d)).replace("{mr}",esc(STORE.settings.payMr)).replace("{wave}",esc(STORE.settings.payWave))}</p></div>`;
   $("#infoGrid").innerHTML=blk("deliv","delT","dDeliv")+blk("pay","payT","dPay")+blk("ret","retT","dRet");
@@ -848,10 +893,11 @@ $("#loginForm").onsubmit = e => {
 $("#loginCancel").onclick = closeLogin;
 
 function renderAdmin(){
-  const tabs=[["produits","Produits"],["categories","Catégories"],["avis","Avis"],["reglages","Réglages"],["publier","Publier"]];
+  const tabs=[["produits","Produits"],["recu","Reçu"],["categories","Catégories"],["images","Images du site"],["avis","Avis"],["reglages","Réglages"],["publier","Publier"]];
   $("#aTabs").innerHTML = tabs.map(([k,l])=>`<button class="a-tab${aTab===k?" on":""}" data-tab="${k}">${l}</button>`).join("");
-  $("#aBody").innerHTML = aTab==="produits"?aProductsHTML():aTab==="categories"?aCatsHTML():aTab==="avis"?aReviewsHTML():aTab==="reglages"?aSettingsHTML():aPublishHTML();
+  $("#aBody").innerHTML = aTab==="produits"?aProductsHTML():aTab==="recu"?aReceiptHTML():aTab==="categories"?aCatsHTML():aTab==="images"?aImagesHTML():aTab==="avis"?aReviewsHTML():aTab==="reglages"?aSettingsHTML():aPublishHTML();
   if(aTab==="produits") renderAList();
+  if(aTab==="recu") rcDraw();
   updateStatus();
 }
 $("#aTabs").onclick = e => { const b=e.target.closest("[data-tab]"); if(!b) return; aTab=b.dataset.tab; armed=null; renderAdmin(); };
@@ -968,11 +1014,22 @@ function aCatsHTML(){
   return `<div class="a-card"><h3>Catégories du menu</h3><p class="a-hint">L'ordre ci-dessous est celui du menu de la boutique.</p>`+
     STORE.cats.map((c,i)=>`<div class="a-crow" data-ci="${i}"><input class="e" value="${esc(c.e)}" data-ck="e" maxlength="4" aria-label="Icône">
       <input value="${esc(c.fr)}" data-ck="fr" placeholder="Français"><input value="${esc(c.en||"")}" data-ck="en" placeholder="English"><input value="${esc(c.ar||"")}" data-ck="ar" placeholder="العربية" dir="rtl">
-      <div class="a-act"><button class="a-btn" data-act="up" aria-label="Monter">↑</button><button class="a-btn" data-act="down" aria-label="Descendre">↓</button><button class="a-btn danger" data-act="delcat">Supprimer</button></div></div>`).join("")+
+      <div class="a-act">${c.img?`<img class="a-th" style="width:40px;height:40px" src="${esc(imgSrc(c.img))}" alt="">`:""}<label class="a-btn" for="cf${i}">📷 ${c.img?"Photo":"+ Photo"}</label><input type="file" id="cf${i}" data-cimg="${i}" accept="image/*" hidden>${c.img?`<button class="a-btn" data-act="cimgdel">Sans photo</button>`:""}<button class="a-btn" data-act="up" aria-label="Monter">↑</button><button class="a-btn" data-act="down" aria-label="Descendre">↓</button><button class="a-btn danger" data-act="delcat">Supprimer</button></div></div>`).join("")+
     `</div><div class="a-card"><h3>Ajouter une catégorie</h3><div class="a-grid">
       <label class="f">Icône<input id="nc-e" value="🏷️" maxlength="4"></label><label class="f">Nom (français) *<input id="nc-fr"></label>
       <label class="f">Nom (English)<input id="nc-en"></label><label class="f">الاسم (العربية)<input id="nc-ar" dir="rtl"></label></div>
       <p class="a-err" id="ncErr"></p><button class="a-btn primary" data-act="addcat">+ Ajouter la catégorie</button></div>`;
+}
+
+/* --- Images du site --- */
+const IMG_SLOTS=[["emblem","Logo de l'en-tête (carré, en haut à gauche)","images/logo-emblem.jpg"],["logo","Logo du pied de page","images/logo.jpg"],["s1","Bannière d'accueil n°1 · « Équipez vos ambitions »",""],["s2","Bannière d'accueil n°2 · « Maillots personnalisés »","images/maillot-personnalise-accueil.jpg"],["s3","Bannière d'accueil n°3 · « Chaussettes antidérapantes »",""],["bankily","Logo de paiement · Bankily","images/logo-bankily.jpg"],["masrvi","Logo de paiement · Masrvi","images/logo-masrvi.jpg"],["sedad","Logo de paiement · Sedad","images/logo-sedad.jpg"],["wave","Logo de paiement · Wave (Sénégal)","images/logo-wave.jpg"]];
+function aImagesHTML(){
+  const IM=STORE.settings.images;
+  return `<div class="a-card"><h3>Images du site</h3><p class="a-hint">Changez ici les logos et les images des bannières de la page d'accueil. Pour les photos des produits, utilisez l'onglet Produits, bouton « Modifier ». Pour l'image de chaque catégorie, utilisez l'onglet Catégories.</p>`+
+  IMG_SLOTS.map(([k,l,def],i)=>`<div class="a-imgrow">${IM[k]?`<img src="${esc(imgSrc(IM[k]))}" alt="">`:`<div class="none">Aucune</div>`}<b>${l}</b>
+    <label class="a-btn" for="sf${i}">📷 ${IM[k]?"Changer":"Ajouter"}</label><input type="file" id="sf${i}" accept="image/*" data-slot="${k}" hidden>
+    ${IM[k]&&k.startsWith("s")?`<button class="a-btn danger" data-act="slotdel" data-slot="${k}">Retirer</button>`:""}
+    ${IM[k]!==def&&def?`<button class="a-btn" data-act="slotreset" data-slot="${k}">Image d'origine</button>`:""}</div>`).join("")+`</div>`;
 }
 
 /* --- Avis --- */
@@ -991,6 +1048,7 @@ function aSettingsHTML(){
       <label class="f">Numéro WhatsApp (avec l'indicatif, sans le +)<input data-sk="whatsapp" inputmode="tel" value="${esc(S.whatsapp)}"></label>
       <label class="f">Taux FCFA (1 MRU = … FCFA)<input data-sk="rate" type="number" min="0" step="0.1" value="${S.rate}"></label>
       <label class="f">Numéro de paiement Mauritanie (Bankily, Masrvi, Sedad)<input data-sk="payMr" inputmode="tel" value="${esc(S.payMr)}"></label>
+      <label class="f">Identifiant de suivi des visites (Google : G-… ou GTM-…)<input data-sk="trackId" value="${esc(S.trackId)}" placeholder="G-XXXXXXXXXX"></label>
       <label class="f">Numéro Wave (Sénégal)<input data-sk="payWave" inputmode="tel" value="${esc(S.payWave)}"></label></div></div>
     <div class="a-card"><h3>Réseaux sociaux (pied de page)</h3><p class="a-hint">Collez le lien de votre page. Laissez vide pour ne rien afficher.</p><div class="a-grid">
       <label class="f">Facebook<input data-sk="social.facebook" value="${esc(S.social.facebook)}" placeholder="https://facebook.com/…"></label>
@@ -1068,10 +1126,138 @@ function copyJSON(){
 
 /* --- Actions du tableau d'administration --- */
 const aBody = $("#aBody");
+/* --- Reçu client --- */
+const RC_KEY="mb_rc_draft", RC_HIST="mb_rc_hist", RC_N="mb_rc_n";
+function rcNextNo(){ return "MS-"+new Date().getFullYear()+"-"+String((parseInt(safeGet(RC_N)||"0")||0)+1).padStart(4,"0"); }
+function rcNew(){ return {no:rcNextNo(), date:new Date().toISOString().slice(0,10), client:"", phone:"", lines:[], deliv:0, method:"Espèces", paid:null, note:""}; }
+let RC = null;
+function rcInit(){ if(RC) return; try{ const d=JSON.parse(safeGet(RC_KEY)||"null"); if(d && Array.isArray(d.lines)) RC=d; }catch(e){} if(!RC) RC=rcNew(); }
+function rcSave(){ safeSet(RC_KEY, JSON.stringify(RC)); }
+function rcTotals(){ const sub=RC.lines.reduce((s,l)=>s+(Number(l.q)||0)*(Number(l.p)||0),0), deliv=Number(RC.deliv)||0, total=sub+deliv; const paid=(RC.paid===null||RC.paid===""||RC.paid===undefined)?total:Math.max(0,Number(RC.paid)||0); return {sub,deliv,total,paid,rest:Math.max(0,total-paid)}; }
+const fm = n => Math.round(n).toLocaleString("fr-FR").replace(/[  ]/g," ")+" MRU";
+function fdate(d){ const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(d||""); return m?m[3]+"/"+m[2]+"/"+m[1]:(d||""); }
+function aReceiptHTML(){
+  rcInit(); const T=rcTotals();
+  const hist=(()=>{ try{ return JSON.parse(safeGet(RC_HIST)||"[]"); }catch(e){ return []; } })();
+  return `<div class="a-card"><h3>Reçu pour le client</h3><p class="a-hint">Remplissez le reçu, puis envoyez l'image au client sur WhatsApp. Votre logo est ajouté automatiquement.</p>
+    <div class="a-grid">
+      <label class="f">N° du reçu<input data-rc="no" value="${esc(RC.no)}"></label>
+      <label class="f">Date<input data-rc="date" type="date" value="${esc(RC.date)}"></label>
+      <label class="f">Nom du client<input data-rc="client" value="${esc(RC.client)}"></label>
+      <label class="f">Téléphone du client<input data-rc="phone" inputmode="tel" value="${esc(RC.phone)}"></label></div></div>
+    <div class="a-card"><h3>Articles</h3>
+      ${RC.lines.length?RC.lines.map((l,i)=>`<div class="a-rl" data-ri="${i}"><input data-rl="d" value="${esc(l.d)}" placeholder="Désignation"><input data-rl="q" type="number" min="1" inputmode="numeric" value="${esc(l.q)}" aria-label="Quantité"><input data-rl="p" type="number" min="0" inputmode="numeric" value="${esc(l.p)}" aria-label="Prix unitaire"><button class="a-btn danger" data-rcact="del" aria-label="Retirer">×</button></div>`).join(""):`<p class="a-hint">Aucun article. Ajoutez un produit ci-dessous.</p>`}
+      <div class="a-tools" style="margin-top:10px"><select id="rcAdd"><option value="">+ Ajouter un produit du catalogue…</option>${STORE.products.map(p=>`<option value="${p.id}">${esc(p.fr)} — ${p.price} MRU</option>`).join("")}</select><button class="a-btn" data-rcact="free">+ Ligne libre</button></div>
+      <p class="a-hint">Colonnes : désignation (vous pouvez ajouter la taille, le nom et le numéro), quantité, prix unitaire.</p></div>
+    <div class="a-card"><h3>Paiement</h3><div class="a-grid">
+      <label class="f">Frais de livraison (MRU)<input data-rc="deliv" type="number" min="0" inputmode="numeric" value="${RC.deliv||0}"></label>
+      <label class="f">Mode de paiement<select data-rc="method">${["Espèces","Bankily","Masrvi","Sedad","Wave","Paiement à la livraison"].map(m=>`<option${RC.method===m?" selected":""}>${m}</option>`).join("")}</select></label>
+      <label class="f">Montant payé (MRU) — vide = tout payé<input data-rc="paid" type="number" min="0" inputmode="numeric" value="${RC.paid===null?"":RC.paid}" placeholder="${Math.round(T.total)}"></label>
+      <label class="f">Remarque (facultatif)<input data-rc="note" value="${esc(RC.note)}"></label></div></div>
+    <div class="a-card"><h3>Aperçu</h3><canvas id="rcCanvas" style="width:100%;max-width:420px;border:1px solid var(--line);border-radius:8px;background:#fff;display:block"></canvas>
+      <div class="a-actions" style="justify-content:flex-start;flex-wrap:wrap"><button class="a-btn primary" data-rcact="share">Envoyer / Enregistrer l'image</button><button class="a-btn" data-rcact="print">Imprimer / PDF</button><button class="a-btn" data-rcact="done">Terminer et nouveau reçu</button></div>
+      <p class="a-hint">« Terminer » enregistre ce reçu dans l'historique de ce navigateur et prépare le numéro suivant.</p></div>
+    ${hist.length?`<div class="a-card"><h3>Reçus enregistrés</h3>${hist.map((h,i)=>`<div class="a-crow" data-hi="${i}" style="grid-template-columns:1fr 1fr auto"><div><b>${esc(h.rc.no)}</b><br><small>${fdate(h.rc.date)}</small></div><div>${esc(h.rc.client||"—")}<br><small>${fm(h.total)}</small></div><div class="a-act"><button class="a-btn" data-rcact="open">Ouvrir</button><button class="a-btn danger" data-rcact="hdel">Supprimer</button></div></div>`).join("")}</div>`:""}`;
+}
+function rcLoadImg(src){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null); i.src=src; }); }
+function rcWrap(ctx,text,maxW){ const out=[]; let line=""; String(text||"").split(/\s+/).forEach(w=>{ const t=line?line+" "+w:w; if(ctx.measureText(t).width>maxW && line){ out.push(line); line=w; } else line=t; }); if(line) out.push(line); return out.length?out:[""]; }
+let rcTok=0;
+async function rcDraw(){
+  const cv=$("#rcCanvas"); if(!cv) return; const tok=++rcTok; rcInit();
+  try{ await document.fonts.load("600 20px Poppins"); await document.fonts.load("400 20px Poppins"); }catch(e){}
+  const logo=await rcLoadImg(imgSrc((STORE.settings.images&&STORE.settings.images.logo)||"images/logo.jpg"));
+  if(tok!==rcTok) return;
+  const W=800, M=48, F=n=>n+"px Poppins, system-ui, sans-serif", T=rcTotals(), G="#0b6b3a", Y="#f2b705";
+  const run=(ctx,draw)=>{
+    let y=0; const txt=(s,x,yy,font,col,al)=>{ if(!draw) return; ctx.font=font; ctx.fillStyle=col; ctx.textAlign=al||"left"; ctx.fillText(s,x,yy); };
+    if(draw){ ctx.fillStyle="#fff"; ctx.fillRect(0,0,W,cv.height); ctx.fillStyle=G; ctx.fillRect(0,0,W,12); ctx.fillStyle=Y; ctx.fillRect(0,12,W,5); }
+    y=48;
+    if(logo&&draw){ const h=96, w=logo.width*h/logo.height; ctx.drawImage(logo,M,y,Math.min(w,200),h); }
+    txt("REÇU",W-M,y+40,"700 "+F(36),G,"right"); txt("N° "+RC.no,W-M,y+72,"600 "+F(18),"#111827","right"); txt("Date : "+fdate(RC.date),W-M,y+98,"400 "+F(16),"#4b5563","right");
+    y+=134;
+    if(draw){ ctx.fillStyle="#e5e7eb"; ctx.fillRect(M,y,W-2*M,2); } y+=34;
+    txt("CLIENT",M,y,"600 "+F(13),"#6b7280"); y+=26;
+    txt(RC.client||"—",M,y,"600 "+F(20),"#111827"); y+=26;
+    if(RC.phone){ txt("Tél. "+RC.phone,M,y,"400 "+F(16),"#4b5563"); y+=26; }
+    y+=14;
+    if(draw){ ctx.fillStyle=G; ctx.fillRect(M,y,W-2*M,40); }
+    txt("Désignation",M+14,y+27,"600 "+F(15),"#fff"); txt("Qté",W-M-300,y+27,"600 "+F(15),"#fff","center"); txt("Prix unit.",W-M-190,y+27,"600 "+F(15),"#fff","right"); txt("Total",W-M-14,y+27,"600 "+F(15),"#fff","right");
+    y+=40;
+    ctx.font="400 "+F(16);
+    (RC.lines.length?RC.lines:[{d:"—",q:"",p:0}]).forEach((l,i)=>{
+      ctx.font="400 "+F(16); const ls=rcWrap(ctx,l.d,300), h=Math.max(46,ls.length*22+24);
+      if(draw){ if(i%2){ ctx.fillStyle="#f8fafc"; ctx.fillRect(M,y,W-2*M,h); } ctx.fillStyle="#e5e7eb"; ctx.fillRect(M,y+h-1,W-2*M,1); }
+      ls.forEach((t,k)=>txt(t,M+14,y+28+k*22,"400 "+F(16),"#111827"));
+      const q=Number(l.q)||0, p=Number(l.p)||0;
+      if(l.q!==""){ txt(String(q),W-M-300,y+28,"400 "+F(16),"#111827","center"); txt(fm(p),W-M-190,y+28,"400 "+F(16),"#111827","right"); txt(fm(q*p),W-M-14,y+28,"600 "+F(16),"#111827","right"); }
+      y+=h;
+    });
+    y+=26;
+    const row=(a,b,bold,col)=>{ txt(a,W-M-330,y,(bold?"600 ":"400 ")+F(bold?20:16),col||"#374151","left"); txt(b,W-M-14,y,(bold?"700 ":"400 ")+F(bold?22:16),col||"#111827","right"); y+=bold?36:28; };
+    if(T.deliv) { row("Sous-total",fm(T.sub)); row("Livraison",fm(T.deliv)); }
+    if(draw){ ctx.fillStyle=Y; ctx.fillRect(W-M-342,y-26,342,42); }
+    row("TOTAL",fm(T.total),true,"#111827");
+    y+=4; row("Payé ("+RC.method+")",fm(T.paid),false,G);
+    if(T.rest>0) row("Reste à payer",fm(T.rest),true,"#b91c1c"); else { txt("✔ PAYÉ",M,y-6,"700 "+F(22),G); y+=10; }
+    if(RC.note){ y+=10; ctx.font="400 "+F(15); rcWrap(ctx,"Remarque : "+RC.note,W-2*M).forEach(t=>{ txt(t,M,y,"400 "+F(15),"#4b5563"); y+=22; }); }
+    y+=34;
+    if(draw){ ctx.fillStyle="#e5e7eb"; ctx.fillRect(M,y,W-2*M,2); } y+=40;
+    txt("Merci pour votre confiance !",W/2,y,"600 "+F(20),G,"center"); y+=30;
+    txt("MBEYBE SPORT — Équipez vos ambitions",W/2,y,"600 "+F(15),"#111827","center"); y+=24;
+    txt("WhatsApp +"+STORE.settings.whatsapp.replace(/^(\d{3})(\d{2})(\d{2})(\d{2})(\d{2})$/,"$1 $2 $3 $4 $5"),W/2,y,"400 "+F(15),"#4b5563","center"); y+=24;
+    txt("Nouakchott, Mauritanie",W/2,y,"400 "+F(14),"#6b7280","center"); y+=34;
+    return y;
+  };
+  const tmp=document.createElement("canvas").getContext("2d"); const H=Math.ceil(run(tmp,false));
+  cv.width=W; cv.height=H; run(cv.getContext("2d"),true);
+}
+let rcTimer; function rcDrawSoon(){ clearTimeout(rcTimer); rcTimer=setTimeout(rcDraw,150); }
+function rcBlob(){ return new Promise(r=>$("#rcCanvas").toBlob(r,"image/png")); }
+aBody.addEventListener("input", e => {
+  const el=e.target;
+  if(el.dataset.rc){ rcInit(); const k=el.dataset.rc; RC[k]=(k==="paid")?(el.value===""?null:Number(el.value)):(k==="deliv"?(Number(el.value)||0):el.value); rcSave(); rcDrawSoon(); return; }
+  if(el.dataset.rl){ rcInit(); const i=+el.closest("[data-ri]").dataset.ri, k=el.dataset.rl, l=RC.lines[i]; if(!l) return; l[k]=(k==="d")?el.value:(el.value===""?"":Number(el.value)); rcSave(); rcDrawSoon(); }
+});
+aBody.addEventListener("change", e => {
+  const el=e.target;
+  if(el.dataset.rc==="method"){ rcInit(); RC.method=el.value; rcSave(); rcDrawSoon(); }
+  if(el.id==="rcAdd" && el.value){ rcInit(); const p=STORE.products.find(x=>x.id===+el.value); if(p){ RC.lines.push({d:p.fr,q:1,p:p.price}); rcSave(); renderAdmin(); } }
+});
+aBody.addEventListener("click", async e => {
+  const b=e.target.closest("[data-rcact]"); if(!b) return; rcInit();
+  const a=b.dataset.rcact;
+  if(a==="free"){ RC.lines.push({d:"",q:1,p:0}); rcSave(); renderAdmin(); }
+  else if(a==="del"){ RC.lines.splice(+b.closest("[data-ri]").dataset.ri,1); rcSave(); renderAdmin(); }
+  else if(a==="share"){
+    await rcDraw(); const blob=await rcBlob(); if(!blob){ toast("Impossible de créer l'image."); return; }
+    const name="recu-"+RC.no+".png", file=new File([blob],name,{type:"image/png"});
+    try{ if(navigator.canShare && navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:"Reçu "+RC.no}); return; } }catch(err){ if(err&&err.name==="AbortError") return; }
+    const u=URL.createObjectURL(blob), l=document.createElement("a"); l.href=u; l.download=name; document.body.appendChild(l); l.click(); l.remove(); setTimeout(()=>URL.revokeObjectURL(u),3000); toast("Image enregistrée");
+  }
+  else if(a==="print"){ await rcDraw(); const w=window.open("","_blank"); if(!w){ toast("Autorisez les fenêtres pop-up pour imprimer."); return; } w.document.write('<title>Reçu '+esc(RC.no)+'</title><body style="margin:0"><img src="'+$("#rcCanvas").toDataURL("image/png")+'" style="width:100%;max-width:800px;display:block;margin:auto">'); w.document.close(); setTimeout(()=>w.print(),400); }
+  else if(a==="done"){
+    if(!RC.lines.length){ toast("Ajoutez au moins un article."); return; }
+    let h=[]; try{ h=JSON.parse(safeGet(RC_HIST)||"[]"); }catch(e){} h.unshift({rc:clone(RC),total:rcTotals().total}); safeSet(RC_HIST,JSON.stringify(h.slice(0,50)));
+    safeSet(RC_N,String((parseInt(safeGet(RC_N)||"0")||0)+1)); RC=rcNew(); rcSave(); renderAdmin(); toast("Reçu enregistré. Nouveau reçu prêt.");
+  }
+  else if(a==="open"){ let h=[]; try{ h=JSON.parse(safeGet(RC_HIST)||"[]"); }catch(e){} const x=h[+b.closest("[data-hi]").dataset.hi]; if(x){ RC=clone(x.rc); rcSave(); renderAdmin(); scrollTo(0,0); } }
+  else if(a==="hdel"){ const i=+b.closest("[data-hi]").dataset.hi; arm(b,"h"+i,"",()=>{ let h=[]; try{ h=JSON.parse(safeGet(RC_HIST)||"[]"); }catch(e){} h.splice(i,1); safeSet(RC_HIST,JSON.stringify(h)); renderAdmin(); }); }
+});
+
+
 aBody.addEventListener("input", e => { if(e.target.id==="aSearch"){ aQ=e.target.value; renderAList(); } });
 aBody.addEventListener("change", e => {
   const el=e.target;
   if(el.id==="aCatSel"){ aCat=el.value; renderAList(); return; }
+  if(el.dataset.slot && el.files[0]){
+    fileToDataURL(el.files[0],el.dataset.slot==="emblem"||el.dataset.slot==="logo"?600:1000,0.85).then(d=>{ STORE.settings.images[el.dataset.slot]=d; saveDraft(); renderAdmin(); toast("Image enregistrée (brouillon)"); }).catch(()=>toast("Impossible de lire cette image."));
+    return;
+  }
+  if(el.dataset.cimg!==undefined && el.files[0]){
+    const ci=+el.dataset.cimg;
+    fileToDataURL(el.files[0],500,0.85).then(d=>{ if(STORE.cats[ci]){ STORE.cats[ci].img=d; saveDraft(); renderAdmin(); toast("Photo de catégorie enregistrée"); } }).catch(()=>toast("Impossible de lire cette image."));
+    return;
+  }
   if(el.id==="importFile" && el.files[0]){
     const fr=new FileReader();
     fr.onload=()=>{ try{ const j=JSON.parse(fr.result); if(!j||!Array.isArray(j.products)||!Array.isArray(j.cats)) throw 0;
@@ -1098,6 +1284,7 @@ aBody.addEventListener("change", e => {
     const S=STORE.settings;
     if(sk==="whatsapp"){ S.whatsapp=el.value.replace(/\D/g,"")||S.whatsapp; el.value=S.whatsapp; }
     else if(sk==="rate"){ S.rate=Number(el.value)>0?Number(el.value):S.rate; el.value=S.rate; }
+    else if(sk==="trackId"){ const v=el.value.trim().toUpperCase(); if(v&&!/^(G|GT|GTM)-[A-Z0-9]+$/.test(v)){ toast("Identifiant invalide : il commence par G-, GT- ou GTM-."); el.value=S.trackId; return; } S.trackId=v; el.value=v; }
     else if(sk==="payMr"||sk==="payWave"){ S[sk]=el.value.trim()||S[sk]; el.value=S[sk]; }
     else if(sk.startsWith("social.")){ let u=el.value.trim(); if(u&&!/^https?:\/\//i.test(u)) u="https://"+u; S.social[sk.split(".")[1]]=u; el.value=u; }
     else if(sk.startsWith("announce.")) S.announce[sk.split(".")[1]]=el.value.trim();
@@ -1133,10 +1320,13 @@ aBody.addEventListener("click", e => {
     STORE.reviews.push({name:$("#nr-name").value.trim(), text:tx}); saveDraft(); renderAdmin(); toast("Avis ajouté");
   }
   else if(act==="delrev"){ const i=+b.closest("[data-ri]").dataset.ri; arm(b,"r"+i,"Supprimer",()=>{ STORE.reviews.splice(i,1); saveDraft(); renderAdmin(); }); }
+  else if(act==="slotdel"){ STORE.settings.images[b.dataset.slot]=""; saveDraft(); renderAdmin(); }
+  else if(act==="slotreset"){ const d=IMG_SLOTS.find(x=>x[0]===b.dataset.slot); STORE.settings.images[b.dataset.slot]=d?d[2]:""; saveDraft(); renderAdmin(); }
+  else if(act==="cimgdel"){ STORE.cats[idx].img=""; saveDraft(); renderAdmin(); }
   else if(act==="addcat"){
     const fr=$("#nc-fr").value.trim(); if(!fr){ $("#ncErr").textContent="Le nom en français est obligatoire."; return; }
     let id=slug(fr), n=2; while(STORE.cats.some(c=>c.id===id)) id=slug(fr)+"-"+(n++);
-    STORE.cats.push({id, e:$("#nc-e").value.trim()||"🏷️", fr, en:$("#nc-en").value.trim(), ar:$("#nc-ar").value.trim()});
+    STORE.cats.push({id, img:"", e:$("#nc-e").value.trim()||"🏷️", fr, en:$("#nc-en").value.trim(), ar:$("#nc-ar").value.trim()});
     saveDraft(); renderAdmin(); toast("Catégorie ajoutée");
   }
   else if(act==="pw"){
